@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción de visualizaciones 5 Minute Crafts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://static.wixstatic.com/media/e1e43d_7d584b0a7cdd453aa86c1de5adde1061~mv2.png/v1/fill/w_984,h_664,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/e1e43d_7d584b0a7cdd453aa86c1de5adde1061~mv2.png'); /* Reemplaza la URL con la URL de tu imagen */
+            background-size: cover;
+            background-position: center;
+            color: #fff; /* Color de texto principal (blanco) */
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente para mejorar la legibilidad */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Arial Black', sans-serif;
+            font-size: 28px;
+            color: #fff; /* Color blanco */
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #fff; /* Color blanco */
+            margin-bottom: 20px;
+            line-height: 1.6; /* Espaciado entre líneas */
+            font-weight: bold; /* Texto en negrita */
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+            color: #fff; /* Color blanco */
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #fbbf24; /* Amarillo */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #f59e0b; /* Amarillo más oscuro al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><strong>¿Será tu próximo vídeo todo un éxito? Descúbrelo aquí.</strong></h1>
+        <p><strong>Imagina que eres la persona responsable de subir a YouTube los vídeos del canal '5-Minute Crafts'.</strong> En tu mano está <strong>elegir un buen título para que el vídeo reciba numerosas visualizaciones.</strong></p>
+        <p><strong>¡Es una gran responsabilidad! Pero no te preocupes porque para que te sea más fácil puedes utilizar este modelo de Machine Learning que te ayudará en esta tarea.</strong> ¿Te animas a probarlo? Aquí tienes algunos <strong>ejemplos de títulos</strong>: '5 FANTASTIC TRICKS to be FASHIONABLE', 'the best HACKS and IDEAS for LIFE in any situation', 'THE BEST GADGETS to be a PERFECT OWNER', 'Dont miss these 30 tips if your kitchen sucks!'...</p>
+        <form action="/predict" method="post">
+            <label for="video_title">Título del vídeo:</label>
+            <input type="text" id="video_title" name="video_title" required>
+            <input type="submit" value="Predict">
+        </form>
+        {% if prediction %}
+            <h2>Predicción: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
